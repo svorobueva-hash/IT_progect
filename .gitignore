@@ -1,2 +1,2 @@
 *.mp4
-*.MP4
+!videos-light/*.mp4
