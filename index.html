@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="screen">
+<div class="leftblock">
+    <!-- Header -->
+    <header class="header">
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <a href="#">Главная страница</a>
+            <a href="about.html">Обо мне</a>
+            <a href="proect.html">Проекты</a>
+        </nav>
+    </header>
+    
+    <!-- Slider -->
+
+    <div class="projects-slider">
+    <div class="slider-window">
+        <div class="slider-track">
+            <div class="slide"> 
+                <a href="project1.html" class="project-link">
+                <video autoplay muted loop playsinline style="width:110%; height:110%; border-radius:20px;">
+                    <source src="0336.mp4" type="video/mp4">
+                </video></a></div>
+            <div class="slide">
+                <a href="project1.html" class="project-link">
+                <video autoplay muted loop playsinline style="width:110%; height:110%; border-radius:20px;">
+                    <source src="0331.mp4" type="video/mp4">
+                </video></a></div>
+            <div class="slide"><a href="project1.html" class="project-link">
+                <video autoplay muted loop playsinline style="width:110%; height:110%; border-radius:20px;">
+                    <source src="0332.mp4" type="video/mp4">
+                </video></a></div>
+            <div class="slide"><a href="project1.html" class="project-link">
+                <video autoplay muted loop playsinline style="width:110%; height:110%; border-radius:20px;">
+                    <source src="0333.mp4" type="video/mp4">
+                </video></a></div>
+            <div class="slide"><a href="project1.html" class="project-link">
+                <video autoplay muted loop playsinline style="width:110%; height:110%; border-radius:20px;">
+                    <source src="0335.mp4" type="video/mp4">
+                </video></a></div>
+        </div>
+    </div>
+
+    <div class="slider-arrows">
+        <button class="arrow left">←</button>
+        <button class="arrow right">→</button>
+    </div>
+    </div>
+    
+
+    <!-- Content -->
+    <section class="content">
+        <h1>Анимационное портфолио</h1>
+        <h2>Воробьевой Светланы</h2>
+
+        <p class="marg">
+        <span class="highlight">Портфолио работ</span> в области <span class="highlight">анимации</span> и <span class="highlight">motion-графики:</span> <br>
+        персонажная анимация, динамичные ролики и визуальные проекты.
+        </p>
+
+        <button class="btn2" onclick="window.location.href='about.html'">Обо мне</button>
+
+        <div class="contacts">
+            <h2 style="color: #EBA835;">Контакты</h2>
+            <p style="margin-top: 8px;">+7 (904) 658 88 97 / с 10:00 до 18:00</p>
+            <p style="margin-top: 4px;">Svetlana_Vorobueva@gmail.com/ в любое время</p>
+        </div>
+    </section>
+</div>
+    <div class="pravblock">
+        <div class="animation-area">
+        <video autoplay muted loop playsinline>
+            <source src="0330.MP4" type="video/mp4">
+        </video>
+        </div><div class="btn-bg"></div><button class="btn1">Связаться</button>
+        
+    </div>
+
+</div>
+<div id="qr-popup" style="display:none;">
+    <button id="qr-close">Закрыть</button>
+    <div id="qr-code"></div>
+</div>
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+</body>
+</html>

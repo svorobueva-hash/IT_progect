@@ -1,0 +1,631 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('Gilroy-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    background: rgb(0, 0, 0);
+    color: white;
+    font-family: 'Gilroy', Arial, sans-serif;
+    overflow: hidden;
+}
+
+.screen {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    padding: 0 clamp(24px, 5vw, 108px);
+    position: relative;
+}
+
+.screen2 {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    padding: 0 clamp(24px, 5vw, 108px);
+    position: relative;
+}
+/* Header */
+
+.header {
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+/* ---------- SAFE AREA ---------- */
+
+:root{
+--safe-top: env(safe-area-inset-top);
+--safe-bottom: env(safe-area-inset-bottom);
+--safe-left: env(safe-area-inset-left);
+--safe-right: env(safe-area-inset-right);
+}
+
+/* ---------- BLUR GRADIENT ---------- */
+
+.video-gradient{
+    display:none;
+}
+
+/* ---------- CAPTION ---------- */
+
+.video-caption{
+    display:none;
+}
+
+.video-caption h1{
+    display:none;
+}
+
+.video-caption p{
+    display:none;
+}
+
+/* ---------- BURGER ---------- */
+
+.burger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+    z-index:20;
+}
+
+.burger span{
+    width:28px;
+    height:2px;
+    background:white;
+}
+
+/* ---------- NAV OPEN ---------- */
+
+.header nav a {
+    margin-right: 40px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+.header nav a:hover {
+    color: #EBA835;
+}
+
+/*Два блока*/
+
+.pravblock {
+    width: 58%;
+    position: relative;
+    z-index: 1;
+}
+
+.pravblock22 {
+    top: 21%;
+    position: relative;
+}
+
+.leftblock {
+    width: 42%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-bg {
+    position: absolute;
+    right: -0.5%;
+    top: 0;
+    width: 352px;
+    height: 166px;
+    background: rgba(0, 0, 0); /* полупрозрачный для примера */
+    clip-path: path('M76 0C74.9984 0.0333872 73.7081 0.163288 72.2139 0.417969C74.1032 0.144206 76.0348 1.0889e-07 78 0H310C332.091 0 350 17.9086 350 40V166C349.667 160.833 346.8 148.3 338 139.5C329.2 130.7 317 128.167 312 128H78C55.9086 128 38 110.091 38 88V40C38 38.7534 38.0593 37.5203 38.1709 36.3027C38.0881 36.9308 38.0323 37.4999 38 38C37.6667 32.8333 34.8 20.3 26 11.5C17.2 2.7 5 0.166668 0 0H76Z');
+    -webkit-clip-path: path('M76 0C74.9984 0.0333872 73.7081 0.163288 72.2139 0.417969C74.1032 0.144206 76.0348 1.0889e-07 78 0H310C332.091 0 350 17.9086 350 40V166C349.667 160.833 346.8 148.3 338 139.5C329.2 130.7 317 128.167 312 128H78C55.9086 128 38 110.091 38 88V40C38 38.7534 38.0593 37.5203 38.1709 36.3027C38.0881 36.9308 38.0323 37.4999 38 38C37.6667 32.8333 34.8 20.3 26 11.5C17.2 2.7 5 0.166668 0 0H76Z');
+    z-index: 5; /* чуть ниже кнопки */
+}
+
+/* Кнопка обычная */
+.btn1 {
+    border: 1px solid #EBA835;
+    background: transparent;
+    color: #EBA835;
+    padding: 10px clamp(24px, 5vw, 64px);
+    border-radius: 24px;
+    font-size: 16px;
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    z-index: 6; 
+    cursor: pointer;
+} 
+
+.btn2 {
+    border: 1px solid #EBA835;
+    background: transparent;
+    color: #EBA835;
+    padding: 10px clamp(24px, 5vw, 64px);
+    border-radius: 24px;
+    font-size: 16px;
+    margin-top: 5%;
+}
+
+.btn1:hover,
+.btn2:hover {
+    background: #EBA835;
+    color: #000;
+}
+
+.highlight {
+    color: #EBA835;
+}
+
+.projects-slider {
+    position: relative;
+    width: 133%;      /* 100% + 1/3 */
+    height: clamp(180px,16vw,272px);
+    margin-top: 6%;
+    margin-right: -33%;
+    background: black;
+    display: flex;
+    align-items: center;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    z-index: 5;
+}
+
+/* окно слайдов без маски */
+.slider-window {
+    width: calc(100% + 216px); /* 108px слева + 108px справа */
+    margin-left: -108px;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;/* сдвигаем трек к левому краю с учетом padding */
+    align-items: center;          /* вертикально по центру */
+    margin-right: 32px; 
+    box-sizing: border-box;       
+    overflow: hidden;           
+}
+
+.tns-outer{
+overflow:hidden;
+}
+
+.tns-ovh{
+overflow:visible;
+}
+
+.tns-item{
+flex-shrink:0;
+}
+
+/* track */
+.slider-track {
+    display: flex;
+    gap: 32px;
+    transition: transform 0.4s ease;
+}
+
+/* slides */
+.slide {
+    height:clamp(100px,16vw, 194px); 
+    border-radius:20px;
+    background:#000000;
+    flex-shrink:0;
+    border: 1px solid #ffffff; /* оранжевая обводка */
+    box-sizing: border-box;
+}
+
+.slide-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110%;               /* можно чуть больше, чтобы перекрывать полностью */
+    height: 110%;
+    object-fit: cover;         /* fill + crop */
+    transform: translate(-50%, -50%);  /* центрируем по середине блока */
+    border-radius: 20px;
+}
+
+
+/* arrows */
+.slider-arrows .arrow {
+    width: 64px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 22px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    background: #111;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    align-items: center;
+    justify-content: center; /* центрируем стрелку внутри кнопки */
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.2s;
+}
+
+.slider-arrows .arrow:hover {
+    transform: translateY(-50%) scale(1.08); /* чуть увеличиваем кнопку */
+}
+
+.slider-arrows .left {
+    left: 0;   /* левый край блока */
+}
+
+.slider-arrows .right {
+    right: 0.4%;  /* правый край блока */
+}
+
+
+/* Content */
+.content {
+    margin-top: 7%;
+    max-width: 540px;
+}
+h4{
+    font-size: 16px;
+}
+.content h1 {
+    color: orange;
+    margin-bottom: 1.4%;
+    font-size: clamp(28px,2.5vw,40px);
+}
+
+.content h2 {
+    color: rgb(255, 255, 255);
+    margin-bottom: 8px;
+    font-size: clamp(18px,2.5vw,26px);
+}
+
+.content p {
+    font-size:clamp(14px,1vw,18px);
+}
+
+.contacts {
+    margin-top: 80px;
+}
+.contacts2 {
+    margin-top: 48px;
+}
+.contacts p {
+    font-size:clamp(14px,1vw,18px);
+}
+
+.animation-area {
+    width: 100%;
+    height: 100%;
+    position: relative;       /* для кнопки внутри */
+    background: #cfcfcf;         /* на случай, если видео не загрузится */
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    overflow: hidden;         /* чтобы видео не вылезало за скругления */
+}
+
+.animation-area video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.marg{
+    margin-top: 6%;
+}
+
+.marg2{
+    margin-top: 2%;
+}
+
+.marg3{
+    margin-top: 7.6%;
+}
+
+#qr-popup {
+  position: fixed;
+  top: 28%;
+  right: -3%;
+  transform: translate(-50%, -50%);
+  background: black;
+  padding: 64px 32px 32px 32px; /* верхний padding для кнопки */
+  border-radius: 24px;
+  text-align: center;
+  z-index: 1000; /* поверх всего */
+  display: none; /* скрыт по умолчанию */
+}
+
+#qr-popup #qr-code {
+  width: 200px;
+  height: 200px;
+  background: white; /* для примера */
+  margin: 0 auto; /* по центру */
+}
+
+/* Кнопка закрытия — текст "Закрыть" */
+#qr-popup #qr-close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  padding: 4px 8px;
+  border: none;
+  background: none;
+  color: #EBA835;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+#qr-popup #qr-close:hover {
+  color: #535353;
+}
+
+/* Видео + колонка картинок */
+.video-section {
+  display: flex;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.video-container {
+  flex: 3; /* Видео занимает больше места */
+}
+
+.images-column {
+  flex: 1; /* Колонка с картинками уже */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.column-img {
+  width: 100%;
+  height: 120px; /* Можно подогнать под нужный размер */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Кнопки под видео */
+.buttons-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.buttons-row .action-btn {
+  flex: 1; /* Все кнопки одинаковой ширины */
+  padding: 12px 0;
+  border: none;
+  border-radius: 24px;
+  border: 1px solid #EBA835;
+  color: #EBA835;
+  background: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.buttons-row .action-btn:hover {
+  background-color: #d7942f;
+  color: #000;
+}
+
+/* Контейнер, центрирующий контент вертикально */
+.socials-fixed {
+    position: fixed; 
+    margin-top: 4.5%;        /* чуть выше низа экрана */
+    right: 80px;            /* прижимается к правому краю */
+    display: flex;
+    flex-direction: row;    /* горизонтально */
+    gap: 16px;              /* расстояние между окошками */
+    z-index: 50;
+}
+
+/* Окошки соцсетей */
+.social-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: black; /* здесь можно вставить иконку соцсети */
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.social-box:hover {
+    background-color: #EBA835;
+}
+
+/* ===============================
+   < 1440px — немного уменьшаем
+================================ */
+@media (max-width: 1440px) {
+
+    .screen{
+        padding: 0 64px;
+    }
+
+    .socials-fixed {
+        right: 64px;            /* прижимается к правому краю */
+    }
+
+    .header nav a{
+        font-size:16px;
+        margin-right:24px;
+    }
+
+    .content h1{
+        font-size: clamp(26px,2.2vw,36px);
+    }
+
+    .content h2{
+        font-size: clamp(16px,2vw,24px);
+    }
+
+    .content p{
+        font-size:15px;
+    }
+
+    .btn1,
+    .btn2,
+    .btn3{
+        font-size:15px;
+        padding:10px 48px;
+    }
+
+    .projects-slider{
+        height: clamp(160px,15vw,240px);
+    }
+
+    .slide{
+        height: clamp(110px,14vw,180px);
+    }
+
+}
+
+
+/* ===============================
+   < 1194px — компактнее
+================================ */
+@media (max-width:1194px){
+
+    .screen{
+        padding:0 40px;
+    }
+    .socials-fixed {
+        right: 40px;            /* прижимается к правому краю */
+    }
+
+    .pravblock{
+        width:55%;
+    }
+
+    .leftblock{
+        width:45%;
+    }
+
+    .content{
+        max-width:460px;
+    }
+
+    .content h1{
+        font-size: clamp(24px,2vw,32px);
+    }
+
+    .content h2{
+        font-size: clamp(15px,1.8vw,22px);
+    }
+
+    .content p{
+        font-size:14px;
+    }
+
+    .btn1,
+    .btn2,
+    .btn3{
+        padding:8px 40px;
+        font-size:14px;
+    }
+
+    .projects-slider{
+        margin-top:4%;
+    }
+
+    .slide{
+        height:140px;
+        border-radius:18px;
+    }
+
+}
+
+
+/* ===============================
+   > 1700px — увеличиваем
+================================ */
+@media (min-width:1700px){
+
+    .screen{
+        padding: 0 140px;
+    }
+
+    .socials-fixed {
+        right: 140px;            /* прижимается к правому краю */
+    }
+
+    .header nav a{
+        font-size:20px;
+        margin-right:48px;
+    }
+
+    .content{
+        margin-top: 9%;
+        max-width:640px;
+    }
+
+    .content h1{
+        font-size:48px;
+    }
+
+    .content h2{
+        font-size:30px;
+    }
+
+    .content p{
+        font-size:20px;
+    }
+
+    .btn1,
+    .btn2,
+    .btn3{
+        font-size:20px;
+        padding:14px 80px;
+    }
+
+    .btn1{
+        right: 0px;
+        top: 32px;
+    }
+
+    .projects-slider{
+        height:300px;
+        margin-right: -80%;
+        margin-top: 9%;
+        width: 133%;
+    }
+
+    .slide{
+        height:220px;
+        border-radius:24px;
+    }
+    .slider-window {
+        width: calc(100% + 400px);
+        margin-left: -360px; 
+        margin-right: 4%;  
+    }
+    .buttons-row .action-btn {
+        flex: 1; /* Все кнопки одинаковой ширины */
+        padding: 14px 0;
+        border: none;
+        border-radius: 24px;
+        border: 1px solid #EBA835;
+        color: #EBA835;
+        background: transparent;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+}
