@@ -27,10 +27,10 @@ const slider = tns({
             items: 2.4
         },
         1440: {
-            items: 2.4
+            items: 2.6
         },
         1920: {
-            items: 3
+            items: 3.2
         }
     }
 });

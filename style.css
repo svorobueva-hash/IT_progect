@@ -11,6 +11,10 @@
     font-style: normal;
 }
 
+* {
+    font-family: 'Gilroy', Arial, sans-serif;
+}
+
 body {
     background: rgb(0, 0, 0);
     color: white;
@@ -37,7 +41,7 @@ body {
 /* Header */
 
 .header {
-    margin-top: 48px;
+    margin-top: 6.5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -219,7 +223,7 @@ flex-shrink:0;
 
 /* slides */
 .slide {
-    height:clamp(100px,16vw, 194px); 
+    height:clamp(80px,16vw, 184px); 
     border-radius:20px;
     background:#000000;
     flex-shrink:0;
@@ -248,8 +252,8 @@ flex-shrink:0;
     border: none;
     font-weight: bold;
     cursor: pointer;
-    background: #111;
-    color: white;
+    background: #000;
+    color: #EBA835;
     cursor: pointer;
     position: absolute;
     align-items: center;
@@ -274,14 +278,14 @@ flex-shrink:0;
 
 /* Content */
 .content {
-    margin-top: 7%;
+    margin-top: 6%;
     max-width: 540px;
 }
 h4{
     font-size: 16px;
 }
 .content h1 {
-    color: orange;
+    color: #EBA835;
     margin-bottom: 1.4%;
     font-size: clamp(28px,2.5vw,40px);
 }
@@ -313,7 +317,16 @@ h4{
     background: #cfcfcf;         /* на случай, если видео не загрузится */
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
-    overflow: hidden;         /* чтобы видео не вылезало за скругления */
+    overflow: hidden;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 16px;
 }
 
 .animation-area video {
@@ -383,7 +396,36 @@ h4{
 }
 
 .video-container {
-  flex: 3; /* Видео занимает больше места */
+  flex: 3;
+  border: 1px solid #fff;
+  border-radius: 26px;
+  transition: transform 0.3s ease;
+}
+
+.video-container:hover {
+  transform: scale(1.08);
+}
+
+.video-placeholder {
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.video-text {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.video-link {
+    color: #EBA835;
+    text-decoration: underline;
+    font-size: 16px;
 }
 
 .images-column {
@@ -398,6 +440,7 @@ h4{
   height: 120px; /* Можно подогнать под нужный размер */
   object-fit: cover;
   border-radius: 8px;
+  border: 0.1px solid #ffffff;
 }
 
 /* Кнопки под видео */
